@@ -13,5 +13,26 @@ Con todo mi cariño,
 """
     return render_template('carta.html', carta=carta_texto)
 
+@app.route('/fotos')
+def galeria():
+    fotos = [
+        'IMG_20250421_104044_252.jpg',  # Tu foto actual
+        'foto2.jpg',
+        'foto3.jpg'
+        # ¡Agrega aquí todas tus fotos de la galería general!
+    ]
+    return render_template('fotos.html', fotos=fotos)
+
+# ¡NUEVA RUTA PARA DARICE AQUÍ!
+@app.route('/darice')
+def darice():
+    fotos_darice = [
+        'darice1.jpg', # La primera foto de Darice
+        'darice2.jpg'  # La segunda foto de Darice
+        # Si tienes más fotos de Darice, añádelas aquí.
+    ]
+    return render_template('darice.html', fotos_darice=fotos_darice)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -68,13 +68,14 @@
 </head>
 <body>
   <div class="carta">{{ carta }}</div>
-  <button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
+<button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
+  
+  <a href="{{ url_for('galeria') }}" class="galeria-link">
+    <button>Ver Galería de Fotos 📸</button>
+  </a>
+  
+  <a href="{{ url_for('darice') }}" class="galeria-link">
+    <button>Fotos de Darice 🥰</button>
+  </a>
+  
   <img id="foto" class="foto" src="{{ url_for('static', filename='IMG_20250421_104044_252.jpg') }}" alt="Nuestra foto">
-
-  <script>
-    function mostrarFoto() {
-      document.getElementById("foto").classList.add("mostrar");
-    }
-  </script>
-</body>
-</html>
