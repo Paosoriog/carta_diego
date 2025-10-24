@@ -13,15 +13,14 @@ Con todo mi cariño,
 """
     return render_template('carta.html', carta=carta_texto)
 
-@app.route('/fotos')
-def galeria():
-    fotos = [
-        'IMG_20250421_104044_252.jpg',  # Tu foto actual
-        'foto2.jpg',
-        'foto3.jpg'
-        # ¡Agrega aquí todas tus fotos de la galería general!
+@app.route('/darice')
+def darice():
+    # ¡CUIDADO! Usando los nombres largos que subiste (deben coincidir EXACTAMENTE)
+    fotos_darice = [
+        'darice1.jpg.jpg',     # Nota la doble extensión: .jpg.jpg
+        'darice2.jpg.webp'     # Nota la doble extensión: .jpg.webp
     ]
-    return render_template('fotos.html', fotos=fotos)
+    return render_template('darice.html', fotos_darice=fotos_darice)
 
 # ¡NUEVA RUTA PARA DARICE AQUÍ!
 @app.route('/darice')
