@@ -13,22 +13,23 @@ Con todo mi cariño,
 """
     return render_template('carta.html', carta=carta_texto)
 
-@app.route('/darice')
-def darice():
-    # ¡CUIDADO! Usando los nombres largos que subiste (deben coincidir EXACTAMENTE)
-    fotos_darice = [
-        'darice1.jpg.jpg',     # Nota la doble extensión: .jpg.jpg
-        'darice2.jpg.webp'     # Nota la doble extensión: .jpg.webp
+@app.route('/fotos')
+def galeria():
+    # ATENCIÓN: Si 'foto2.jpg' o 'foto3.jpg' NO existen en static/, borra esas líneas o fallará.
+    fotos = [
+        'IMG_20250421_104044_252.jpg',
+        'darice1.jpg.jpg.jpg', # Reemplaza con tus nombres de archivo reales
+        'darice2.jpg.webp.webp'
     ]
-    return render_template('darice.html', fotos_darice=fotos_darice)
+    return render_template('fotos.html', fotos=fotos)
 
-# ¡NUEVA RUTA PARA DARICE AQUÍ!
 @app.route('/darice')
 def darice():
+    # ***IMPORTANTE: USAMOS LOS NOMBRES EXACTOS DE LOS ARCHIVOS QUE ACABAS DE SUBIR***
+    # Deben coincidir con los archivos que tienes en la carpeta static/
     fotos_darice = [
-        'darice1.jpg', # La primera foto de Darice
-        'darice2.jpg'  # La segunda foto de Darice
-        # Si tienes más fotos de Darice, añádelas aquí.
+        'darice1.jpg.jpg.jpg',     # ¡Triple extensión JPG!
+        'darice2.jpg.webp.webp'    # ¡Doble extensión WEBP!
     ]
     return render_template('darice.html', fotos_darice=fotos_darice)
 
