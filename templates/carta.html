@@ -40,7 +40,6 @@
       transition: opacity 2.5s ease-in-out;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      /* Se mantiene el tamaño pequeño que solicitaste antes */
       max-width: 350px; 
       height: auto; 
     }
@@ -59,6 +58,15 @@
       cursor: pointer;
       font-size: 16px;
       transition: 0.3s;
+      /* Asegura espacio entre botones */
+      margin-left: 10px; 
+      margin-right: 10px;
+    }
+    
+    /* Estilo para los botones enlazados (para que el enlace no se vea feo) */
+    .link-container {
+        display: inline-block;
+        margin-top: 20px;
     }
 
     button:hover {
@@ -68,14 +76,24 @@
 </head>
 <body>
   <div class="carta">{{ carta }}</div>
-<button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
   
-  <a href="{{ url_for('galeria') }}" class="galeria-link">
+  <button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
+  
+  <!-- Enlaces a las nuevas vistas -->
+  <a href="{{ url_for('galeria') }}" class="link-container">
     <button>Ver Galería de Fotos 📸</button>
   </a>
-  
-  <a href="{{ url_for('darice') }}" class="galeria-link">
+  <a href="{{ url_for('darice') }}" class="link-container">
     <button>Fotos de Darice 🥰</button>
   </a>
   
+  <!-- Usamos la foto principal: IMG_20250421_104044_252.jpg -->
   <img id="foto" class="foto" src="{{ url_for('static', filename='IMG_20250421_104044_252.jpg') }}" alt="Nuestra foto">
+
+  <script>
+    function mostrarFoto() {
+      document.getElementById("foto").classList.add("mostrar");
+    }
+  </script>
+</body>
+</html>

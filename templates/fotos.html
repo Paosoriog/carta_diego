@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Nuestras Fotos Juntos 💖</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #fff5f5, #ffe6e6);
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 10px;
+            color: #333;
+        }
+        h1 {
+            color: #ff7b7b;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .foto-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .foto-container:hover {
+            transform: scale(1.03);
+        }
+        .foto-galeria {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #ff7b7b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background-color: #ff5c5c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nuestras Fotos Juntos, Mi Amor</h1>
+
+    <div class="galeria">
+        <!-- El bucle 'for' itera sobre la lista 'fotos' pasada desde app.py -->
+        {% for foto in fotos %}
+        <div class="foto-container">
+            <img src="{{ url_for('static', filename=foto) }}" alt="Foto nuestra" class="foto-galeria">
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{{ url_for('carta') }}" class="back-button">
+        Volver a la Carta 💌
+    </a>
+</body>
+</html>

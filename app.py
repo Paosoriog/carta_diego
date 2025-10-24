@@ -15,7 +15,7 @@ Con todo mi cariño,
 
 @app.route('/fotos')
 def galeria():
-    # Solo listamos la foto principal que sabemos que existe.
+    # Usamos la foto principal para la galería general
     fotos = [
         'IMG_20250421_104044_252.jpg'
     ]
@@ -23,16 +23,14 @@ def galeria():
 
 @app.route('/darice')
 def darice():
-    # *** USAMOS LOS NOMBRES SIMPLIFICADOS (20251004_183124 y IMG_20250823_112647_607) ***
-    # Si estos nombres no coinciden exactamente con los archivos en la carpeta static/
-    # el servidor fallará con el error 500.
+    # *** USAMOS LOS NOMBRES EXACTOS DE LAS DOS FOTOS DE DARICE ***
+    # Si estos nombres no coinciden exactamente con los archivos en static/ el servidor fallará (error 500).
     fotos_darice = [
-        '20251004_183124',     
-        'IMG_20250823_112647_607'    
+        '20251004_183124.jpg',     
+        'IMG_20250823_112647_607.webp'    
     ]
     return render_template('darice.html', fotos_darice=fotos_darice)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
