@@ -15,9 +15,7 @@ Con todo mi cariño,
 
 @app.route('/fotos')
 def galeria():
-    # *** CORREGIDO: SOLO LISTAMOS LAS FOTOS QUE SABEMOS QUE EXISTEN ***
-    # La foto principal IMG_20250421_104044_252.jpg aparecerá aquí.
-    # Eliminamos 'foto2.jpg' y 'foto3.jpg' para que no crashee.
+    # Solo listamos la foto principal que sabemos que existe.
     fotos = [
         'IMG_20250421_104044_252.jpg'
     ]
@@ -25,14 +23,16 @@ def galeria():
 
 @app.route('/darice')
 def darice():
-    # *** CORREGIDO: USAMOS LOS NOMBRES EXACTOS DE LOS ARCHIVOS TRIPLE EXTENSIÓN ***
-    # Si los archivos en static/ tienen otros nombres, FALLARÁ.
+    # *** USAMOS LOS NOMBRES SIMPLIFICADOS (20251004_183124 y IMG_20250823_112647_607) ***
+    # Si estos nombres no coinciden exactamente con los archivos en la carpeta static/
+    # el servidor fallará con el error 500.
     fotos_darice = [
-        'darice1.jpg.jpg.jpg',     # Usando el nombre con triple extensión
-        'darice2.jpg.webp.webp'    # Usando el nombre con doble extensión
+        '20251004_183124',     
+        'IMG_20250823_112647_607'    
     ]
     return render_template('darice.html', fotos_darice=fotos_darice)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
