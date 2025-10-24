@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Para ti 💖</title>
+  <style>
+    body {
+      background: linear-gradient(180deg, #fff5f5, #ffe6e6);
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    .carta {
+      background: #fffaf0;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 600px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      font-size: 18px;
+      animation: fadein 2s ease;
+      text-align: center;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .foto {
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 2.5s ease-in-out;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      /* Se mantiene el tamaño pequeño que solicitaste antes */
+      max-width: 350px; 
+      height: auto; 
+    }
+
+    .mostrar {
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff7b7b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff5c5c;
+    }
+  </style>
+</head>
+<body>
+  <div class="carta">{{ carta }}</div>
+  <button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
+  <img id="foto" class="foto" src="{{ url_for('static', filename='IMG_20250421_104044_252.jpg') }}" alt="Nuestra foto">
+
+  <script>
+    function mostrarFoto() {
+      document.getElementById("foto").classList.add("mostrar");
+    }
+  </script>
+</body>
+</html>
