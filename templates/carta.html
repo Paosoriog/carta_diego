@@ -37,7 +37,7 @@
     .foto {
       margin-top: 30px;
       opacity: 0;
-      transition: opacity 2.5s ease-in-out;
+      transition: opacity 1s ease-in-out;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
       max-width: 350px; 
@@ -72,27 +72,31 @@
     button:hover {
       background-color: #ff5c5c;
     }
+    
+    /* ESTILO PARA EL NUEVO BOTÓN KITTY */
+    #kitty-button {
+      background-color: #ffc0cb; /* Rosa claro de Hello Kitty */
+    }
+    #kitty-button:hover {
+      background-color: #ffb6c1; 
+    }
   </style>
 </head>
 <body>
   <div class="carta">{{ carta }}</div>
   
-  <button onclick="mostrarFoto()">Sorpresa(╯3╰)</button> 
+  <a href="/kitty" class="link-container"><button id="kitty-button">Kitty 🐈</button></a>
   
-  <!-- Enlaces a las nuevas vistas -->
-  <a href="{{ url_for('galeria') }}" class="link-container">
-    <button>Ver Galería de Fotos 📸</button>
-  </a>
-  <a href="{{ url_for('darice') }}" class="link-container">
-    <button>Fotos de Darice 🥰</button>
-  </a>
+  <a href="/fotos" class="link-container"><button>Diego y paz 📸</button></a>
   
-  <!-- Usamos la foto principal: IMG_20250421_104044_252.jpg -->
-  <img id="foto" class="foto" src="{{ url_for('static', filename='IMG_20250421_104044_252.jpg') }}" alt="Nuestra foto">
+  <a href="/darice" class="link-container"><button>Fotos de Darice 🥰</button></a>
+  
+  <img src="{{ foto_url }}" alt="Foto sorpresa" class="foto" id="foto-sorpresa">
 
   <script>
     function mostrarFoto() {
-      document.getElementById("foto").classList.add("mostrar");
+      const foto = document.getElementById('foto-sorpresa');
+      foto.classList.toggle('mostrar');
     }
   </script>
 </body>
