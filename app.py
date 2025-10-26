@@ -30,7 +30,10 @@ def darice():
     # Lista de fotos de Darice que se usarán en darice.html
     fotos_darice = [
         '20251004_183124.jpg',     
-        'IMG_20250823_112647_607.webp'     
+        'IMG_20250823_112647_607.webp',
+        '20250810_115355.jpg',
+        '20251004_171626.jpg',
+        '20251004_171645.jpg'
     ]
     return render_template('darice.html', fotos_darice=fotos_darice)
 
