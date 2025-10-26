@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def carta():
-    # Asumimos que esta foto es la que se muestra en la carta principal (IMG_20250421_104044_252.jpg)
+    # Asumimos que esta foto es la que se muestra en la carta principal
     foto_sorpresa_url = 'IMG_20250421_104044_252.jpg' 
     
     carta_texto = """Mi amor 💌
@@ -19,9 +19,17 @@ Con todo mi cariño,
 
 @app.route('/fotos')
 def galeria():
-    # Usamos la foto principal para la galería general
+    # *************************************************************
+    # * LISTA DE FOTOS DE DIEGO Y PAZ ACTUALIZADA *
+    # * Reemplaza estos nombres con tus archivos reales en la carpeta static.
+    # *************************************************************
     fotos = [
-        'IMG_20250421_104044_252.jpg'
+        'IMG_20250421_104044_252.jpg', # La foto que ya tenías
+        '20250810_131603.jpg',          # EJEMPLO: Reemplaza con tu nombre de archivo
+        '20250914_143244.jpg',        # EJEMPLO: Reemplaza con tu nombre de archivo
+        '20250914_143426.jpg',                # EJEMPLO: Reemplaza con tu nombre de archivo
+        'IMG-20250810-WA0006.jpg',   
+        'IMG-20250810-WA0014.jpg'    # EJEMPLO: Reemplaza con tu nombre de archivo
     ]
     return render_template('fotos.html', fotos=fotos)
 
